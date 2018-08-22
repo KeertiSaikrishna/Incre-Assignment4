@@ -1,10 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         try{
-            Main obj = new Main();
-            obj.throwexc(1);
+            throwexc(15);
         }
-        catch(NullPointerException | IndexOutOfBoundsException | ArithmeticException exc){
+        catch(firstException | secondException | thirdException exc){
             System.out.println(exc);
         }
         finally {
@@ -12,12 +11,14 @@ public class Main {
         }
     }
 
-    void throwexc(int i){
+    static void throwexc(int i) throws firstException ,secondException,thirdException{
         if(i==1)
-            throw new NullPointerException();
+            throw new firstException("first custom Exception");
         else if (i==2)
-            throw new IndexOutOfBoundsException();
+            throw new secondException("second custom Exception");
+        else if(i==3)
+            throw new thirdException("third custom Exception");
         else
-            throw new ArithmeticException();
+            throw new NullPointerException();
     }
 }
